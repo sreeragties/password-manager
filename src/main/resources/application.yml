@@ -1,13 +1,3 @@
-#server.port=8080
-#spring.security.user.name=sreerag
-#spring.security.user.password=password
-#
-#spring.datasource.url=jdbc:postgresql://localhost:5432/chat-app-db
-#spring.datasource.username=postgres
-#spring.datasource.password=sreerag
-#spring.jpa.hibernate.ddl-auto=create
-#spring.jpa.properties.hibernate.globally_quoted_identifiers=true
-
 server:
   port: 8080
 
@@ -21,7 +11,14 @@ spring:
     url: jdbc:postgresql://localhost:5432/password-manager-db
     username: postgres
     password: sreerag
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
