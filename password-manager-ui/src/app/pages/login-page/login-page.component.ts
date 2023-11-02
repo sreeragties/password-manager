@@ -13,20 +13,27 @@ export class LoginPageComponent implements OnInit{
     private authenticationService: AuthenticationService) {}
 
   formGroup: FormGroup = this.formBuilder.group({
-    email: new FormControl('', [Validators.required]),
+    username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   });
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      email: new FormControl('', [Validators.required]),
+      username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
   }
 
   submit(): void {
     if(this.formGroup.valid) {
-      this.authenticationService.login(this.formGroup.value);
+      let username = this.formGroup.controls['username'].value;
+      let password = this.formGroup.controls['password'].value;
+
+      this.authenticationService.login(username, password);
     }
+  }
+
+  test(): void {
+    this.authenticationService.dummy();
   }
 }
