@@ -1,10 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/authentication/authentication-service.service';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit{
 
+  constructor(private formBuilder: FormBuilder,
+    private authenticationService: AuthenticationService) {}
+
+  formGroup: FormGroup = this.formBuilder.group({
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
+  });
+
+  ngOnInit(): void {
+    this.formGroup = this.formBuilder.group({
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
+    });
+  }
+
+  submit(): void {
+    if(this.formGroup.valid) {
+      this.authenticationService.login(this.formGroup.value);
+    }
+  }
 }

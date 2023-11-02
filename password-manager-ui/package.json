@@ -10,7 +10,8 @@
     "test": "ng test",
     "electron": "electron .",
     "electron-build": "ng build && electron .",
-    "electron-export": "electron-packager ./ electronFirst --platform=win32 --override"
+    "electron-export": "electron-packager ./ electronFirst --platform=win32 --override",
+    "local": "ng serve --proxy-config proxy.conf.json"
   },
   "private": true,
   "dependencies": {
