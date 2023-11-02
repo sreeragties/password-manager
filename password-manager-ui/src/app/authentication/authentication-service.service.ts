@@ -22,7 +22,7 @@ export class AuthenticationService {
           localStorage.setItem('token', response.token);
         }
         return response;
-      })).subscribe(() => this.router.navigate(['/home']));
+      })).subscribe(() => this.router.navigate(['']));
   }
 
   isAuthenticated(): boolean {
