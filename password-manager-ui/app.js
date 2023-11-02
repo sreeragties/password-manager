@@ -8,7 +8,9 @@ let appWindow
 function createWindow() {
     appWindow = new BrowserWindow({
         width:1000,
-        height: 800
+        height: 800,
+        minWidth: 700,
+        minHeight: 600,
     })
     appWindow.loadFile('dist/password-manager-ui/index.html');
 
