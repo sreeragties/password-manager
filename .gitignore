@@ -32,4 +32,3 @@ build/
 ### VS Code ###
 .vscode/
 /password-manager-ui/electronFirst-win32-x64/
-/password-manager-ui/package-lock.json
