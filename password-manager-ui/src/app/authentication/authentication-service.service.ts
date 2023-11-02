@@ -25,6 +25,20 @@ export class AuthenticationService {
       })).subscribe(() => this.router.navigate(['/home']));
   }
 
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const jwtPayload = JSON.parse(atob(token.split('.')[1]));
+      return jwtPayload.exp > Date.now() / 1000;
+    }
+    return false;
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
+
   dummy() {
     return this.http.get<any>(`${this.url}/demo-controller`).subscribe();
   }
