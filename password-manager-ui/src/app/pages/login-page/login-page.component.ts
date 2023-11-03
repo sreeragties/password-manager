@@ -32,8 +32,4 @@ export class LoginPageComponent implements OnInit{
       this.authenticationService.login(username, password);
     }
   }
-
-  test(): void {
-    this.authenticationService.dummy();
-  }
 }

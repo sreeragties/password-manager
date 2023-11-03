@@ -1,1 +1,18 @@
-<p>home works!</p>
+
+<!--
+<mat-sidenav-container class="example-container">
+  <button mat-button [matMenuTriggerFor]="menu">Profile</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Logout</button>
+  </mat-menu>
+</mat-sidenav-container> -->
+
+<mat-toolbar  class="menu">
+  <div>
+    <button mat-button [matMenuTriggerFor]="menu">Profile</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
