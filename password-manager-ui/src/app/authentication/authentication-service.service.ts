@@ -15,6 +15,7 @@ export class AuthenticationService {
   private readonly url = '/api/v1';
 
   login(username: string, password: string) {
+    this.checkTokenExpiration();
     const body = { "email" : username, "password": password };
     this.http.post<any>(`${this.url}/auth/authenticate`, body)
       .pipe(map(response => {
@@ -32,6 +33,23 @@ export class AuthenticationService {
       return jwtPayload.exp > Date.now() / 1000;
     }
     return false;
+  }
+
+  checkTokenExpiration(): void {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const jwtPayload = JSON.parse(atob(token.split('.')[1]));
+      const expirationTime = jwtPayload.exp * 1000;
+
+      if (expirationTime <= Date.now()) {
+        localStorage.removeItem('token');
+      } else {
+        const timeToExpiration = expirationTime - Date.now();
+        setTimeout(() => {
+          this.checkTokenExpiration();
+        }, timeToExpiration);
+      }
+    }
   }
 
   logout() {
