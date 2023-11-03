@@ -14,6 +14,24 @@ export class AuthenticationService {
 
   private readonly url = '/api/v1';
 
+  register(firstname: string, lastname: string, email: string, password: string) {
+    this.checkTokenExpiration();
+    const body = {
+    "firstname" : firstname,
+    "lastname": lastname,
+    "email": email,
+    "password": password
+    };
+
+    this.http.post<any>(`${this.url}/auth/register`, body).subscribe((response) => {
+        this.router.navigate(['']);
+      },
+      (error) => {
+        console.error('Error occurred:', error);
+      }
+    );
+  }
+
   login(username: string, password: string) {
     this.checkTokenExpiration();
     const body = { "email" : username, "password": password };

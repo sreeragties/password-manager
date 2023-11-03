@@ -5,16 +5,27 @@
 
 .custom-card {
   width: 400px;
-  height: 335px;
+  height: 430px;
   padding: .50rem;
   background-color:  #f1f1f1;
 }
 
-.custom-button {
+.custom-login-button {
   background-color: #6ed9a0 !important;
+  color: white !important;
+}
+
+.custom-register-button {
+  background-color: #b8b8b8 !important;
   color: white !important;
 }
 
 .custom-padding {
   padding-bottom: .75rem;
+}
+
+.or {
+  padding: 1rem;
+  text-align: center;
+  color: gray;
 }

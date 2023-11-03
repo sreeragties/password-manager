@@ -11,6 +11,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import static com.rage.passwordmanager.utility.Role.USER;
+
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -29,6 +31,7 @@ public class AuthenticationService {
                             .lastname(request.getLastname())
                             .email(request.getEmail())
                             .password(passwordEncoder.encode(request.getPassword()))
+                            .role(USER)
                             .build();
         userRepository.save(user);
 
