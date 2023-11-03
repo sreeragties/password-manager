@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    user:
+      name: sreerag
+      password: password
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/password-manager-db
+    username: postgres
+    password: sreerag
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+jwt:
+  secret:
+    key: BEA2018211126E199642E640D8EEC5794124EDC7CF68A44CCD934B359EF6B951
