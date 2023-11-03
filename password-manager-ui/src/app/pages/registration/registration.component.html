@@ -16,10 +16,14 @@
           <input matInput placeholder="Email" formControlName="email">
         </mat-form-field>
         <mat-form-field class="custom-padding">
-          <input matInput placeholder="Password" formControlName="password">
+          <input matInput placeholder="Password" type="password" formControlName="password">
         </mat-form-field>
-        <button class="custom-button" mat-raised-button type="submit"><i class="fa-solid fa-user"></i> Create a new account</button>
+        <button class="custom-register-button" mat-raised-button type="submit"><i class="fa-solid fa-user"></i> Create a new account</button>
+        <div class=" or justify-content:center mt-2"><span> -- OR -- </span></div>
       </form>
+      <div fxLayoutAlign="stretch" fxLayout="column">
+        <button class="custom-login-button" mat-raised-button (click)="login()"><i class="fa-solid fa-right-to-bracket"></i> Return to login screen</button>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

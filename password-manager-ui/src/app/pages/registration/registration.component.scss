@@ -5,13 +5,18 @@
 
 .custom-card {
   width: 400px;
-  height: 500px;
+  height: 600px;
   padding: .50rem;
   background-color:  #f1f1f1;
 }
 
-.custom-button {
+.custom-register-button {
   background-color: #6ed9a0 !important;
+  color: white !important;
+}
+
+.custom-login-button {
+  background-color: #b8b8b8 !important;
   color: white !important;
 }
 
